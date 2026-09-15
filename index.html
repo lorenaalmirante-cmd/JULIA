@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para você, Julia ♡</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0; min-height:100vh; overflow-x:hidden;
+ font-family:"Segoe UI",Arial,sans-serif;
+ background:linear-gradient(135deg,#ffd6e7,#ffb6d5,#f9d4ff);
+ color:#7a2945;
+}
+.hearts span{
+ position:fixed; bottom:-40px; font-size:24px; opacity:.65;
+ animation:up linear infinite; z-index:0; pointer-events:none;
+}
+@keyframes up{
+ 0%{transform:translateY(0) rotate(0);opacity:0}
+ 15%{opacity:.7}
+ 100%{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+.screen{
+ min-height:100vh; display:flex; flex-direction:column;
+ justify-content:center; align-items:center; text-align:center;
+ padding:30px; position:relative; z-index:2;
+}
+h1{
+ font-size:clamp(36px,8vw,58px); color:#c72c68;
+ margin:0 0 12px; animation:fade 1.3s ease;
+}
+.subtitle{font-size:clamp(17px,4vw,21px);margin:0 0 35px;animation:fade 1.8s ease}
+button{
+ border:0; border-radius:30px; padding:15px 30px;
+ font-size:17px; font-weight:700; cursor:pointer;
+ background:#e84d83; color:white;
+ box-shadow:0 8px 22px rgba(180,40,100,.25);
+ transition:.25s;
+}
+button:hover{transform:scale(1.06);background:#d63c73}
+.letter{
+ display:none; min-height:100vh; padding:45px 18px;
+ justify-content:center; align-items:center; position:relative; z-index:2;
+}
+.letter.show{display:flex;animation:open .9s ease}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes open{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.paper{
+ width:min(92%,720px); background:rgba(255,255,255,.94);
+ padding:clamp(25px,6vw,48px); border-radius:26px;
+ box-shadow:0 18px 55px rgba(120,30,70,.22);
+}
+.paper h2{text-align:center;color:#c72c68;font-size:32px;margin:0 0 25px}
+.text{font-size:18px;line-height:1.8}
+.signature{text-align:right;font-weight:700;font-size:20px;margin-top:28px}
+.photos{display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin:28px 0}
+.photo{
+ width:180px;height:180px;border-radius:20px;object-fit:cover;
+ box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+.placeholder{
+ width:180px;height:180px;border-radius:20px;background:#ffdce9;
+ display:flex;align-items:center;justify-content:center;
+ font-size:55px;color:#e84d83;
+}
+.surprise{text-align:center;margin-top:28px}
+.final{
+ display:none;margin-top:24px;text-align:center;color:#c72c68;
+ font-size:21px;font-weight:700;animation:fade .8s ease;
+}
+.final.show{display:block}
+.music{margin:18px auto 0;display:none;width:100%}
+.back{margin-top:20px;background:#f3a0bd;font-size:14px;padding:11px 22px}
+@media(max-width:600px){
+ .paper h2{font-size:27px}
+ .text{font-size:16px}
+ .placeholder,.photo{width:140px;height:140px}
+}
+</style>
+</head>
+<body>
+
+<div class="hearts">
+<span style="left:5%;animation-duration:8s">♡</span>
+<span style="left:15%;animation-duration:10s;animation-delay:2s">♥</span>
+<span style="left:28%;animation-duration:7s;animation-delay:1s">♡</span>
+<span style="left:40%;animation-duration:11s;animation-delay:3s">♥</span>
+<span style="left:55%;animation-duration:9s">♡</span>
+<span style="left:68%;animation-duration:12s;animation-delay:2s">♥</span>
+<span style="left:80%;animation-duration:8s">♡</span>
+<span style="left:92%;animation-duration:10s;animation-delay:1s">♥</span>
+</div>
+
+<section class="screen" id="home">
+ <h1>Para você, Julia ♡</h1>
+ <p class="subtitle">Fiz uma coisinha especialmente para você...</p>
+ <button onclick="openLetter()">Abrir cartinha 💌</button>
+</section>
+
+<section class="letter" id="letter">
+ <div class="paper">
+  <h2>Uma cartinha para você 💗</h2>
+
+  <div class="text">
+   <p>Julia,</p>
+
+   <p>Eu queria fazer alguma coisa diferente para você. Então pensei em transformar um pouquinho do que eu sinto em uma cartinha.</p>
+
+   <p>Talvez eu nem sempre consiga colocar em palavras tudo aquilo que sinto, mas quero que você saiba que você é uma pessoa muito especial para mim.</p>
+
+   <p>Eu amo nossos momentos, nossas conversas, nossas brincadeiras e até aquelas pequenas coisas que talvez pareçam bobas, mas que acabam ficando guardadas comigo.</p>
+
+   <p>Fiz isso pensando em você e espero que, quando olhar para essa cartinha, consiga sentir pelo menos um pouquinho do carinho que coloquei nela.</p>
+  </div>
+
+  <div class="photos">
+   <!-- Para colocar suas fotos, substitua os dois blocos abaixo por:
+   <img class="photo" src="foto1.jpg">
+   <img class="photo" src="foto2.jpg">
+   -->
+   <div class="placeholder">♡</div>
+   <div class="placeholder">♡</div>
+  </div>
+
+  <div class="signature">Com carinho,<br>Lorena ♡</div>
+
+  <div class="surprise">
+   <button onclick="surprise()">Tem mais uma coisinha... 💝</button>
+   <div class="final" id="final">
+    Eu escolheria você de novo. ♡<br><br>
+    Obrigada por existir na minha vida.
+   </div>
+  </div>
+
+  <div style="text-align:center">
+   <button class="back" onclick="goBack()">Voltar ♡</button>
+  </div>
+ </div>
+</section>
+
+<script>
+function openLetter(){
+ document.getElementById("home").style.display="none";
+ document.getElementById("letter").classList.add("show");
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function surprise(){
+ document.getElementById("final").classList.add("show");
+}
+function goBack(){
+ document.getElementById("letter").classList.remove("show");
+ document.getElementById("home").style.display="flex";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
